@@ -1,6 +1,8 @@
 // Boostrap Navbar
 
-const Navbar = () =>{
+import CartWidget from "./CartWidget";
+
+const Navbar = () => {
     return(
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
@@ -20,7 +22,7 @@ const Navbar = () =>{
                         <a class="nav-link" href="#">Precios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Nosotros</a>
+                        <CartWidget/>
                     </li>
                 </ul>
             </div>
