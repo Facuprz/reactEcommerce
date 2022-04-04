@@ -1,8 +1,16 @@
+import ItemCount from './ItemCount';
 
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
+
+    const onAdd = (qty) => {
+        alert("Seleccionaste " + qty + " items.");
+    }
+
     return(
-        <h3>{greeting}</h3>
+        <div className="contenedorSaludo">
+            <ItemCount stock={5} initial={1} onAdd={onAdd} />
+        </div>
     );
 }
 
