@@ -1,18 +1,30 @@
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import { Col } from 'react-bootstrap';
 
-
-const Item = ({id, title, description, price, stock, image}) => {
+const Item = ({ id, title, brand, price, stock, image }) => {
     return (
-        <div className="card" style={{ width: '18rem' }}>
-            <img className="card-img-top" src={image} alt={title}/>
-            <div className="card-body">
-                <h5 className="card-title">{title}</h5>
-                <p>ID: {id}</p>
-                <p>Descripcion: {description}</p>
-                <p>Stock: {stock}</p>
-                <p className="card-text">Precio: {price}</p>
-                <a href="#" className="btn btn-primary">Detalles</a>
-            </div>
-        </div>
+        <Col>
+            <Card className='text-center' border="dark" style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={image} />
+                <Card.Body>
+                    <Card.Title>{title}</Card.Title>
+                    <Card.Text>
+                        ID: {id}
+                    </Card.Text>
+                    <Card.Text>
+                        Marca: {brand}
+                    </Card.Text>
+                    <Card.Text>
+                        Stock: {stock}
+                    </Card.Text>
+                    <Card.Text>
+                        Precio: $ {price}
+                    </Card.Text>
+                    <Button variant="primary">Detalles</Button>
+                </Card.Body>
+            </Card>
+        </Col>
     );
 }
 
