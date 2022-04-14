@@ -12,22 +12,29 @@ const ItemDetail = ({item}) => {
     }
 
     return (
-        <Container>
-            <Card className="text-center">
-                <Card.Header>{item.title}</Card.Header>
-                <Card.Body>
-                    <Card.Img variant="top" src={item.image} />
-                    <Card.Title>Descripcion</Card.Title>
-                    <Card.Text>
-                        {item.description}
-                    </Card.Text>
-                    <ItemCount stock={item.stock} initial={1} onAdd={onAdd}/>
-                </Card.Body>
-                <Card.Footer className="text-muted">
-                    Stock: {item.stock}
-                </Card.Footer>
-            </Card>
-        </Container>
+        <>
+            {
+                item.image
+                ?
+                <Container>
+                    <Card className="text-center">
+                        <Card.Header>{item.title}</Card.Header>
+                        <Card.Body>
+                            <Card.Img variant="top" src={item.image} />
+                            <Card.Title>Descripcion</Card.Title>
+                            <Card.Text>
+                                {item.description}
+                            </Card.Text>
+                            <ItemCount stock={item.stock} initial={1} onAdd={onAdd}/>
+                        </Card.Body>
+                        <Card.Footer className="text-muted">
+                            Stock: {item.stock}
+                        </Card.Footer>
+                    </Card>
+                </Container>
+                :<p>Cargando..</p>
+            }   
+        </>
     );
 }
 
