@@ -1,6 +1,6 @@
 // Boostrap Navbar
 
-import { Container, Nav, Navbar, NavbarBrand, NavDropdown } from "react-bootstrap";
+import { Container, Form, Nav, Navbar, NavbarBrand, NavDropdown } from "react-bootstrap";
 import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
 import NavbarToggle from "react-bootstrap/esm/NavbarToggle";
 import { Link } from "react-router-dom";
@@ -8,52 +8,31 @@ import CartWidget from "./CartWidget";
 
 const NavBar = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-            <div className="container-fluid">
-                <Link to='/' >
-                    <a className="navbar-brand" href="#">Opti-shop</a>
-                </Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <Link to ='/category/1'>
-                                <a className="nav-link" href="#">Lentes de contacto</a>
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to='/category/3'>
-                                <a className="nav-link" href="#">Soluciones</a>
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to='/category/2'>
-                                <a className="nav-link" href="#">Anteojos</a>
-                            </Link>
-                        </li>
-                    </ul>
-                    <form className="d-flex">
+        <Navbar bg="primary" variant="dark" expand="lg">
+            <Container fluid>
+                <Link to='/'><Navbar.Brand href="#home">
+                    <img
+                        alt="logo"
+                        src="https://cdn-icons-png.flaticon.com/512/3617/3617003.png"
+                        width="30"
+                        height="30"
+                        className="d-inline-block align-top"
+                    />{' '}
+                    Opti-shop
+                </Navbar.Brand></Link>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                        <Link to='/category/1'><Nav.Link href="#home">Lentes de contacto</Nav.Link></Link>
+                        <Link to='/category/2'><Nav.Link href="#link">Anteojos</Nav.Link></Link>
+                        <Link to='/category/3'><Nav.Link href="#home">Soluciones</Nav.Link></Link>
+                    </Nav>
+                    <Nav>
                         <CartWidget/>
-                    </form>
-                </div>
-            </div>
-        </nav>
-
-        // <Navbar bg="primary" variant="dark" expand="lg">
-        //     <Container>
-        //         <Link to="/"><Navbar.Brand>Opti-shop</Navbar.Brand></Link>
-        //         <Nav className="me-auto">
-        //             {/* link a categorias */}
-        //             <Nav.Link to="/categoryId/lentes">Lentes</Nav.Link>
-        //             <Nav.Link to="/categoryId/soluciones">Soluciones</Nav.Link>
-        //             <Link to="/categoryId/anteojos"><Nav.Link>Anteojos</Nav.Link></Link>
-        //             {/* componente cartwidget */}
-        //             <CartWidget/>
-        //         </Nav>
-        //     </Container>
-        // </Navbar>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
 }
 

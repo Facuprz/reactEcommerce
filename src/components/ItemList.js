@@ -1,5 +1,6 @@
 import { Container, Row } from "react-bootstrap";
-import Item from "./Item"
+import Item from "./Item";
+import LoadingAnimation from "./LoadingAnimation";
 
 const ItemList = ({items}) => {
     return (
@@ -8,7 +9,8 @@ const ItemList = ({items}) => {
                 {
                     items.length > 0
                     ?items.map(item => <Item key={item.id} id={item.id} title={item.title} price={item.price} brand={item.brand} image={item.image[0]} stock={item.stock} />)
-                    :<p>Cargando..</p>
+                    // :<p>Cargando..</p>
+                    :<LoadingAnimation/>
                 }
             </Row>
         </Container>

@@ -1,38 +1,52 @@
+import { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card'
+import CheckOut from './CheckOut';
 import ItemCount from "./ItemCount"
+import LoadingAnimation from './LoadingAnimation';
+import { Link } from 'react-router-dom';
+import { Button } from 'bootstrap';
+
+
 
 
 const ItemDetail = ({item}) => {
 
-    // const [itemCount, setItemCount] = useState()
+    const [count, setCount] = useState(0);
 
     const onAdd = (qty) => {
         alert("Seleccionaste " + qty + " items.");
+        setCount(qty);
     }
 
     return (
         <>
             {
-                item.image
+                item && item.image
                 ?
                 <Container>
-                    <Card className="text-center">
-                        <Card.Header>{item.title}</Card.Header>
+                    <Card className="text-center mx-auto" border="secondary" style={{  width: '22rem' }}>
+                        <Card.Header style={{fontSize: 25}}>{item.title}</Card.Header>
                         <Card.Body>
                             <Card.Img variant="top" src={item.image} />
                             <Card.Title>Descripcion</Card.Title>
                             <Card.Text>
                                 {item.description}
                             </Card.Text>
-                            <ItemCount stock={item.stock} initial={1} onAdd={onAdd}/>
+                            {
+                                count === 0
+                                ?<ItemCount stock={item.stock} initial={count} onAdd={onAdd}/>
+                                :<CheckOut/>
+                                // :<Link to='/cart'><Button variant="danger" size="lg">Checkout</Button></Link>
+                            }
                         </Card.Body>
                         <Card.Footer className="text-muted">
                             Stock: {item.stock}
                         </Card.Footer>
                     </Card>
                 </Container>
-                :<p>Cargando..</p>
+                // :<p>Cargando..</p>
+                :<LoadingAnimation/>
             }   
         </>
     );
