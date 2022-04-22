@@ -10,7 +10,7 @@ const NavBar = () => {
     return (
         <Navbar bg="primary" variant="dark" expand="lg">
             <Container fluid>
-                <Link to='/'><Navbar.Brand href="#home">
+                <Link to='/' style={{textDecoration: 'none'}}><Navbar.Brand href="#home">
                     <img
                         alt="logo"
                         src="https://cdn-icons-png.flaticon.com/512/3617/3617003.png"
@@ -23,9 +23,9 @@ const NavBar = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Link to='/category/1'><Nav.Link href="#home">Lentes de contacto</Nav.Link></Link>
-                        <Link to='/category/2'><Nav.Link href="#link">Anteojos</Nav.Link></Link>
-                        <Link to='/category/3'><Nav.Link href="#home">Soluciones</Nav.Link></Link>
+                        <Link to='/category/1' style={{textDecoration: 'none'}}><Nav.Link href="#home">Lentes de contacto</Nav.Link></Link>
+                        <Link to='/category/2' style={{textDecoration: 'none'}}><Nav.Link href="#link">Anteojos</Nav.Link></Link>
+                        <Link to='/category/3' style={{textDecoration: 'none'}}><Nav.Link href="#home">Soluciones</Nav.Link></Link>
                     </Nav>
                     <Nav>
                         <CartWidget/>

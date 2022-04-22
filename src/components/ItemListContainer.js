@@ -40,7 +40,7 @@ const ItemListContainer = () => {
     }
 
     return(
-        <div>
+        <div className='bgShiny'>
             <ItemList items={datos}/>
             {/* <ItemCount stock={5} initial={1} onAdd={onAdd} /> */}
         </div>

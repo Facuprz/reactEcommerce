@@ -25,9 +25,9 @@ const ItemDetailContainer = () => {
     },  []);
 
     return (
-        <>
+        <div>
             <ItemDetail item={dato} />           
-        </>
+        </div>
     );
 }
 
