@@ -89,11 +89,6 @@ const ItemDetail = ({ item }) => {
                 :<LoadingAnimation/>
             } */}
 
-
-
-
-
-
             {
                 item && item.image
                     ?
