@@ -117,10 +117,6 @@ const ItemDetail = ({ item }) => {
                     // :<p>Cargando..</p>
                     : <LoadingAnimation />
             }
-
-
-
-
         </>
     );
 }

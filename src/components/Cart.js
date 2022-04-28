@@ -2,20 +2,39 @@ import React, { useContext } from 'react'
 import { Row, Container, Button, Col, Card, CardImg } from "react-bootstrap";
 import { CartContext } from './CartContext';
 import { Link } from 'react-router-dom';
-import context from 'react-bootstrap/esm/AccordionContext';
+import { serverTimestamp } from "firebase/firestore";
 
 
 
 const Cart = () => {
+    // Traemos la data del carro desde cartContext 
     const contextData = useContext(CartContext);
 
-    return (
-        // <Card className="text-center" border="secondary" style={{fontSize: 50}}>
-        //     <Card.Body>
-        //         Este es mi carrito
-        //     </Card.Body>
-        // </Card>
+    const checkoutOrder = () => {
+        let order = {
+            buyer: {
+                name: "bruce wayne",
+                email: "bruce@wayne",
+                phone: 123456789
+            },
 
+            date: serverTimestamp(),
+
+            items: contextData.cartItems.map (item => ({
+                id: "",
+                title: "",
+                price: "",
+                qty: 0
+            })),
+
+            total: contextData.calcTotal()
+        }
+        
+        
+        console.log(order)
+    }
+
+    return (
         <Container className="mt-3">
             <Row>
                 {
@@ -29,7 +48,7 @@ const Cart = () => {
                 }
                 <Row className="mt-4">
                     {
-                        //checkeamos si hay items en el carro y si es asi mostramos los items
+                        // Checkeamos si hay items en el carro y si es asi mostramos los items
                         contextData.cartItems.length > 0
                             ? contextData.cartItems.map(item => (
                                 <Row key={item.itemId}>
@@ -55,7 +74,7 @@ const Cart = () => {
                                     </Col>
                                 </Row>
                             ))
-                            //carro vacio no mostramos nada
+                            // Carro vacio no mostramos nada
                             : ''
                     }
                     {
@@ -66,7 +85,7 @@ const Cart = () => {
                                 <Card.Text>
                                     $ {contextData.calcTotal()}                                
                                 </Card.Text>
-                                <Button variant="outline-success">Finalizar compra</Button>
+                                <Button variant="outline-success" onClick={checkoutOrder}>Finalizar compra</Button>
                             </Card.Body>
                         </Card>
                     }

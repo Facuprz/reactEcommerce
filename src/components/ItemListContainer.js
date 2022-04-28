@@ -1,48 +1,38 @@
-import ItemCount from './ItemCount';
 import ItemList from './ItemList';
 import { useState, useEffect } from 'react';
-import { getProducts, products } from "../Utils/products";
-import customFetch from '../Utils/customFetch';
 import { useParams } from 'react-router-dom';
+import { firestoreFetch } from '../Utils/firestoreData';
 
 
 
+// Componente que contiene los productos
 const ItemListContainer = () => {
 
     const [datos, setDatos] = useState([]);
 
-    const {idCategory} = useParams(); // Hook de react router
-    // console.log(idCategory);
-
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         let data = await getProducts();
-    //         setDatos(data);
-    //         }
-    //     fetchData();
-    // },[]);
+    const { idCategory } = useParams(); // Hook de react router
+    
+    // Muestra los productos de la base de datos
+    useEffect(() => {        
+        firestoreFetch(idCategory)
+            .then(res => setDatos(res))
+            .catch(err => console.log(err));
+    }, [idCategory]);
+    
 
     useEffect(() => {
-        if (idCategory === undefined) {
-            //Traemos los productos con una promesa
-            customFetch(2000, products)
-                .then(res => setDatos(res))
-                .catch(err => console.log(err));
-        } else {
-            customFetch(2000, products.filter(item => item.category === parseInt(idCategory)))
-                .then(res => setDatos(res))
-                .catch(err => console.log(err));
-        }            
-    }, [idCategory]);
+        return (() => {
+            setDatos([]);
+        })
+    }, []);
 
-    const onAdd = (qty) => {
-        alert("Seleccionaste " + qty + " items.");
-    }
+    // const onAdd = (qty) => {
+    //     alert("Seleccionaste " + qty + " items.");
+    // }
 
     return(
         <div className='bgShiny'>
             <ItemList items={datos}/>
-            {/* <ItemCount stock={5} initial={1} onAdd={onAdd} /> */}
         </div>
     );
 }

@@ -9,13 +9,6 @@ const CartWidget = () => {
     const context = useContext(CartContext);
 
     return(
-        // <button type="button" className="btn btn-primary">
-        //     <FaShoppingCart/>
-        //     <span className="badge bg-danger">
-        //         4
-        //     </span>
-        // </button>
-        
         <Link to="/cart">
             <Button variant="primary">
                 <FaShoppingCart/>
