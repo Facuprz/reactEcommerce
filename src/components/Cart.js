@@ -2,8 +2,9 @@ import React, { useContext } from 'react'
 import { Row, Container, Button, Card, CardGroup } from "react-bootstrap";
 import { CartContext } from './CartContext';
 import { Link } from 'react-router-dom';
-import { doc, setDoc, collection, serverTimestamp } from "firebase/firestore";
+import { doc, setDoc, collection, serverTimestamp, updateDoc, increment } from "firebase/firestore";
 import db from "../Utils/firebaseConfig"
+import Swal from 'sweetalert2'
 
 
 const Cart = () => {
@@ -13,14 +14,12 @@ const Cart = () => {
     const checkoutOrder = () => {
 
         // Actualiza el stock de la base de datos
-
-        // contextData.cartItems.forEach(async item => {
-        //     const updateItem = doc(db, "products", item.itemId);
-        //     await updateDoc(updateItem, {
-        //         stock: increment(-item.qtyItem)
-        //     })
-        // });
-        
+        contextData.cartItems.forEach(async item => {
+            const updateItem = doc(db, "products", item.itemId);
+            await updateDoc(updateItem, {
+                stock: increment(-item.itemCant)
+            })
+        });
         // Creamos la orden
         let order = {
             buyer: {
@@ -45,7 +44,13 @@ const Cart = () => {
         };
         // Ejecutamos la orden
         createOrderToFirestore()
-        .then(res => alert('ID de su orden: ' + res.id + 'Gracias por su compra!'))
+        .then(res =>
+            Swal.fire(
+                'ID de su orden: ' + res.id , 
+                'Gracias por su compra!',
+                'success'
+            )
+        )
         .catch(err => console.log(err))
         // Limpiamos el carro despues de ejecutar la orden
         contextData.deleteAllItems();

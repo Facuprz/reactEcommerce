@@ -19,16 +19,11 @@ const ItemListContainer = () => {
             .catch(err => console.log(err));
     }, [idCategory]);
     
-
     useEffect(() => {
         return (() => {
             setDatos([]);
         })
     }, []);
-
-    // const onAdd = (qty) => {
-    //     alert("Seleccionaste " + qty + " items.");
-    // }
 
     return(
         <div>

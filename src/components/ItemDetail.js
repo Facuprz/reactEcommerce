@@ -5,6 +5,8 @@ import CheckOut from './CheckOut';
 import ItemCount from "./ItemCount"
 import LoadingAnimation from './LoadingAnimation';
 import { CartContext } from './CartContext';
+import Swal from 'sweetalert2'
+
 
 
 const ItemDetail = ({ item }) => {
@@ -13,7 +15,11 @@ const ItemDetail = ({ item }) => {
     const contexData = useContext(CartContext);
 
     const onAdd = (qty) => {
-        alert("Seleccionaste " + qty + " items.");
+        Swal.fire(
+            'Seleccionaste:', 
+            qty + ' items',
+            'success'
+        )
         setCount(qty);
         contexData.addItem(item, qty);
     }

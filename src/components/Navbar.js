@@ -1,8 +1,5 @@
 // Boostrap Navbar
-
-import { Container, Form, Nav, Navbar, NavbarBrand, NavDropdown } from "react-bootstrap";
-import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
-import NavbarToggle from "react-bootstrap/esm/NavbarToggle";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 
