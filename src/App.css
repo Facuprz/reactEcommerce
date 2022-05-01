@@ -43,104 +43,38 @@
   text-align: center;
 }
 
-/* Boton Checkout -----------------------------------------------------------------------*/
-
-.cssbuttons-io-button {
-  background: red;
-  color: white;
-  font-family: inherit;
-  padding: 0.35em;
-  padding-left: 1.2em;
-  font-size: 17px;
-  font-weight: 500;
-  border-radius: 0.9em;
-  border: none;
-  letter-spacing: 0.05em;
-  display: flex;
-  align-items: center;
-  box-shadow: inset 0 0 1.6em -0.6em #714da6;
-  overflow: hidden;
-  position: relative;
-  height: 2.8em;
-  padding-right: 3.3em;
+.margin{
+  margin-top: 2%;
 }
 
-.cssbuttons-io-button .icon {
-  background: white;
-  margin-left: 1em;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 2.2em;
-  width: 2.2em;
-  border-radius: 0.7em;
-  box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
-  right: 0.3em;
-  transition: all 0.3s;
+.padding{
+  padding-top: 2%;
 }
 
-.cssbuttons-io-button:hover .icon {
-  width: calc(100% - 0.6em);
+.imgCenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* width: 40%; */
 }
 
-.cssbuttons-io-button .icon svg {
-  width: 1.1em;
-  transition: transform 0.3s;
-  color: red;
+/* Inicio Boton Detalles -----------------------------------------------------------------------*/
+
+.botonDetalles {
+  border-radius: 0.5em !important;
+  border: 1px solid #e8e8e8 !important;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
 }
 
-.cssbuttons-io-button:hover .icon svg {
-  transform: translateX(0.1em);
+.botonDetalles2{
+  border-radius: 0.5em !important;
+  border: 1px solid #e8e8e8 !important;
 }
 
-.cssbuttons-io-button:active .icon {
-  transform: scale(0.95);
-}
+/* Fin Boton Detalles -----------------------------------------------------------------------*/
 
-.containerCheckout {
-  height: 60px;
-  position: relative;
-  /* border: 3px solid green; */
-}
+/* Inicio Boton Checkout -----------------------------------------------------------------------*/
 
-.center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-/* Fin Boton Checkout -------------------------------------------------------------------*/
-
-/* Fondo --------------------------------------------------------------------------------*/
-
-/* .bgShiny{
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='2500' height='4000' preserveAspectRatio='none' viewBox='0 0 2500 4000'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1085%26quot%3b)' fill='none'%3e%3crect width='2500' height='4000' x='0' y='0' fill='url(%23SvgjsLinearGradient1086)'%3e%3c/rect%3e%3cpath d='M25 4000L4025 0L4820 0L820 4000z' fill='url(%23SvgjsLinearGradient1087)'%3e%3c/path%3e%3cpath d='M967 4000L4967 0L5150 0L1150 4000z' fill='url(%23SvgjsLinearGradient1087)'%3e%3c/path%3e%3cpath d='M2380 4000L-1620 0L-2767.5 0L1232.5 4000z' fill='url(%23SvgjsLinearGradient1088)'%3e%3c/path%3e%3cpath d='M1667 4000L-2333 0L-3545 0L455 4000z' fill='url(%23SvgjsLinearGradient1088)'%3e%3c/path%3e%3cpath d='M311.1159506756985 4000L2500 1811.1159506756985L2500 4000z' fill='url(%23SvgjsLinearGradient1087)'%3e%3c/path%3e%3cpath d='M0 4000L2188.8840493243015 4000L 0 1811.1159506756985z' fill='url(%23SvgjsLinearGradient1088)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1085'%3e%3crect width='2500' height='4000' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='-15%25' y1='9.38%25' x2='115%25' y2='90.62%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1086'%3e%3cstop stop-color='%230e2a47' offset='0'%3e%3c/stop%3e%3cstop stop-color='%2300459e' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='0%25' y1='100%25' x2='100%25' y2='0%25' id='SvgjsLinearGradient1087'%3e%3cstop stop-color='rgba(15%2c 70%2c 185%2c 0.2)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(15%2c 70%2c 185%2c 0.2)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='100%25' y1='100%25' x2='0%25' y2='0%25' id='SvgjsLinearGradient1088'%3e%3cstop stop-color='rgba(15%2c 70%2c 185%2c 0.2)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(15%2c 70%2c 185%2c 0.2)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
-} */
-
-/* Fin Fondo  --------------------------------------------------------------------------*/
-
-/* Card ------------------------------------------------------------------------------- */
-
-/* .card {
-  cursor: pointer;
-  background: rgb(255, 255, 255);
-  border-radius: 5px;
-  border: 1px solid rgba(0, 0, 255, .2);
-  transition: all .2s;
-  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
-}
-
-.card:hover {
-  box-shadow: -12px 12px 2px -1px rgba(0, 0, 255, .2);
-} */
-
-/* Fin Card  ----------------------------------------------------------------------------*/
-
-/* From uiverse.io */
 button {
   position: relative;
   display: inline-block;
@@ -228,3 +162,32 @@ button:hover .circle .icon.arrow {
 button:hover .button-text {
   color: #fff;
 }
+
+.containerCheckout {
+  height: 60px;
+  position: relative;
+  /* border: 3px solid green; */
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+/* Fin Boton Checkout -------------------------------------------------------------------*/
+
+/* Inicio Card -------------------------------------------------------------------------------- */
+
+.card {
+  border-radius: 30px !important;
+  margin-top: 5%;
+  /* background: lightgrey; */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 50px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 26px -18px inset;
+}
+
+/* Fin Card  ----------------------------------------------------------------------------*/
+

@@ -16,12 +16,12 @@ const Item = ({ id, title, brand, price, stock, image }) => {
                     <Card.Text>
                         $ {price}
                     </Card.Text>
-                    <Link to = {`/item/${id}`}>            
-                        <Button variant="primary" size="lg">Detalles</Button>
-                    </Link>
                     <Card.Text>
                         Stock: {stock} unidades
                     </Card.Text>
+                    <Link to = {`/item/${id}`}>            
+                        <Button className='botonDetalles' variant="primary" size="lg">Detalles</Button>
+                    </Link>
                 </Card.Body>
             </Card>
         </Col>

@@ -93,7 +93,7 @@ const ItemDetail = ({ item }) => {
                 item && item.image
                     ?
                     <Container>
-                        <Card>
+                        <Card border="dark">
                             <Row className='text-center align-items-center'>
                                 <Col sm={8}>
                                     <Card.Img variant="top" src={item.image} />
@@ -112,6 +112,9 @@ const ItemDetail = ({ item }) => {
                                     </Card.Body>
                                 </Col>
                             </Row>
+                                <Card.Footer className='text-center'>
+                                    Stock: {item.stock}
+                                </Card.Footer>
                         </Card>
                     </Container>
                     // :<p>Cargando..</p>

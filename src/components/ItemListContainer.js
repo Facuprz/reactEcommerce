@@ -31,7 +31,7 @@ const ItemListContainer = () => {
     // }
 
     return(
-        <div className='bgShiny'>
+        <div>
             <ItemList items={datos}/>
         </div>
     );
