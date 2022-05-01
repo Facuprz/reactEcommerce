@@ -1,39 +1,55 @@
 import React, { useContext } from 'react'
-import { Row, Container, Button, Col, Card, CardImg, CardGroup, Table } from "react-bootstrap";
+import { Row, Container, Button, Card, CardGroup } from "react-bootstrap";
 import { CartContext } from './CartContext';
 import { Link } from 'react-router-dom';
-import { serverTimestamp } from "firebase/firestore";
-
+import { doc, setDoc, collection, serverTimestamp } from "firebase/firestore";
+import db from "../Utils/firebaseConfig"
 
 
 const Cart = () => {
-    // Traemos la data del carro desde cartContext 
+    // Traemos los datos del carro desde cartContext 
     const contextData = useContext(CartContext);
 
     const checkoutOrder = () => {
+
+        // Actualiza el stock de la base de datos
+
+        // contextData.cartItems.forEach(async item => {
+        //     const updateItem = doc(db, "products", item.itemId);
+        //     await updateDoc(updateItem, {
+        //         stock: increment(-item.qtyItem)
+        //     })
+        // });
+        
+        // Creamos la orden
         let order = {
             buyer: {
                 name: "bruce wayne",
                 email: "bruce@wayne",
                 phone: 123456789
             },
-
             date: serverTimestamp(),
-
             items: contextData.cartItems.map(item => ({
-                id: "",
-                title: "",
-                price: "",
-                qty: 0
+                id: item.itemId,
+                title: item.itemName,
+                price: item.itemPrice,
+                qty: item.itemCant
             })),
-
             total: contextData.calcTotal()
         }
-
-
-        console.log(order)
+        // Agregamos la orden a la base de datos         
+        const createOrderToFirestore = async () => {
+            const newOrder = doc(collection(db, "orders"));
+            await setDoc(newOrder, order);
+            return newOrder;
+        };
+        // Ejecutamos la orden
+        createOrderToFirestore()
+        .then(res => alert('ID de su orden: ' + res.id + 'Gracias por su compra!'))
+        .catch(err => console.log(err))
+        // Limpiamos el carro despues de ejecutar la orden
+        contextData.deleteAllItems();
     }
-
     return (
         <>
             <Container>
